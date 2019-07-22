@@ -14,7 +14,9 @@ class CrudGeneratorServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->publishes([
+            __DIR__.'/Http/Controllers/API' => app_path('Http/Controllers/API'),
+        ]);
     }
 
     public function register()
