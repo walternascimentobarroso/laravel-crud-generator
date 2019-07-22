@@ -1,8 +1,8 @@
 <?php
 
-namespace WalterNascimentoBarroso\CrudGenerator\Http\Controllers\API;
+namespace App\Http\Controllers\API;
 
-use WalterNascimentoBarroso\CrudGenerator\Http\Controllers\API\BaseController;
+use App\Http\Controllers\API\BaseController;
 use Illuminate\Http\Request;
 use Validator;
 
