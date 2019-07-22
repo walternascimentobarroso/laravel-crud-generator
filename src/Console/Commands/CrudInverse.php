@@ -1,15 +1,13 @@
 <?php
+
 namespace WalterNascimentoBarroso\CrudGenerator\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
 use WalterNascimentoBarroso\CrudGenerator\Console\Commands\DbSettings;
 use Illuminate\Support\Str;
 
-class CrudInverse extends Command
+class CrudInverse extends CommonCrud
 {
-    use CommonCrud;
-
     protected $dbSettings;
     /**
      * The name and signature of the console command.

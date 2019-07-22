@@ -7,11 +7,9 @@ use Illuminate\Support\ServiceProvider;
 class CrudGeneratorServiceProvider extends ServiceProvider
 {
     protected $commands = [
-        'WalterNascimentoBarroso\CrudGenerator\Console\Commands\CommonCrud',
         'WalterNascimentoBarroso\CrudGenerator\Console\Commands\CrudInverse',
         'WalterNascimentoBarroso\CrudGenerator\Console\Commands\CrudMigration',
         'WalterNascimentoBarroso\CrudGenerator\Console\Commands\CrudRest',
-        'WalterNascimentoBarroso\CrudGenerator\Console\Commands\DbSettings',
     ];
 
     public function boot()

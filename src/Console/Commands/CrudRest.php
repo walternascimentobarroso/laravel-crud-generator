@@ -2,12 +2,10 @@
 
 namespace WalterNascimentoBarroso\CrudGenerator\Console\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-class CrudRest extends Command
+class CrudRest extends CommonCrud
 {
-    use CommonCrud;
 
     /**
      * The name and signature of the console command.

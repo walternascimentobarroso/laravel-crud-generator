@@ -2,9 +2,10 @@
 
 namespace WalterNascimentoBarroso\CrudGenerator\Console\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-trait CommonCrud
+class CommonCrud extends Command
 {
     // Criando Model
     public function makeModel($module, $arrayFields)
