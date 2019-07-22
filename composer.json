@@ -1,9 +1,9 @@
 {
-    "name": "walter.barroso/crud-generator",
-    "description": "crud-generator",
+    "name": "walternascimentobarroso/laravel-crud-generator",
+    "description": "laravel-crud-generator",
     "authors": [
         {
-            "name": "Walter Nascimento",
+            "name": "Walter Nascimento Barroso",
             "email": "walter.nascimento.barroso@gmail.com"
         }
     ],
