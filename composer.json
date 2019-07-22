@@ -1,0 +1,16 @@
+{
+    "name": "walter.barroso/crud-generator",
+    "description": "crud-generator",
+    "authors": [
+        {
+            "name": "Walter Nascimento",
+            "email": "walter.nascimento.barroso@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WalterNascimentoBarroso\\CrudGenerator\\": "src/"
+        }
+    },
+    "require": {}
+}
