@@ -44,12 +44,37 @@ class CrudRest extends CommonCrud
         $strFields = strtolower($this->ask('What is your fields name?'));
         $arrayFields = explode(",", $strFields);
 
+        $this->makeMigration($modulelower, $arrayFields);
         $this->makeModel($module, $arrayFields);
         \Artisan::call("make:resource {$module}Resource");
-        \Artisan::call("make:migration create_{$modulelower}_table");
         $this->makeController($module);
         $this->makeRoutes(Str::plural($modulelower), $module);
         //php artisan migrate --seed
         //php artisan make:test UserTest --unit
+    }
+
+    public function makeMigration($module, $arrayFields)
+    {
+        $schema = '';
+        foreach ($arrayFields as $field) {
+            $schema .= $this->generateField(trim($field));
+        }
+        $schema = $this->generateFieldExtra($schema);
+        $schemaOut = $this->replaceFieldsWith($schema, file_get_contents($this->getTemplate('schema.txt')), $module);
+        $this->createMigration($module, $schemaOut);
+    }
+
+    protected function generateField($field)
+    {
+        return "\t\t\t\$table->string('$field');\n";
+    }
+
+    protected function generateFieldExtra($schema)
+    {
+        $newSchema = "\t\t\t\$table->bigIncrements('id');\n";
+        $newSchema .= $schema;
+        $newSchema .= "\t\t\t\$table->timestamps();\n";
+        $newSchema .= "\t\t\t\$table->softDeletes();\n";
+        return $newSchema;
     }
 }

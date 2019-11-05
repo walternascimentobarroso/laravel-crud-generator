@@ -43,4 +43,36 @@ class CommonCrud extends Command
         $this->info("5) <fg=white>Delete</>  Verb: <fg=yellow>DELETE</>, URL: <fg=blue>http://localhost:8000/api/$modulelower/{id}</>");
         $this->info("\n");
     }
+
+    protected function createMigration($table, $schemaOut)
+    {
+        $allConfig =  [
+            'CLASS' => "Create".Str::studly($table)."Table",
+            'UP'    => $schemaOut,
+            'DOWN'  => "Schema::dropIfExists('$table');"
+        ];
+
+        $this->replaceMigrationsWith($allConfig, file_get_contents($this->getTemplate('migration.txt')));
+    }
+
+    protected function replaceFieldsWith($schema, $template, $table)
+    {
+        $output = str_replace('$FIELDS$', $schema, $template);
+        $output = str_replace('$TABLE$', $table, $output);
+        return $output;
+    }
+
+    protected function getTemplate($file)
+    {
+        return __DIR__.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$file;
+    }
+
+    protected function replaceMigrationsWith($config, $template)
+    {
+        $output = str_replace('$CLASS$', $config['CLASS'], $template);
+        $output = str_replace('$UP$', $config['UP'], $output);
+        $output = str_replace('$DOWN$', $config['DOWN'], $output);
+        $path_route = database_path().DIRECTORY_SEPARATOR.'migrations'.DIRECTORY_SEPARATOR.date('Y_m_d_His').'_'.Str::snake($config['CLASS']).'.php';
+        File::put($path_route, $output);
+    }
 }
