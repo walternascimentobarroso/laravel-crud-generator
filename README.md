@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/walternascimentobarroso/laravel-crud-generator.svg?branch=develop)](https://travis-ci.org/walternascimentobarroso/laravel-crud-generator)
+[![Latest Stable Version](https://poser.pugx.org/walternascimentobarroso/laravel-crud-generator/v/stable.png)](https://packagist.org/packages/walternascimentobarroso/laravel-crud-generator) 
+[![Total Downloads](https://poser.pugx.org/walternascimentobarroso/laravel-crud-generator/downloads.png)](https://packagist.org/packages/walternascimentobarroso/laravel-crud-generator)
 
 Via Composer
 
@@ -6,7 +8,7 @@ Via Composer
 composer require walternascimentobarroso/laravel-crud-generator 
 ```
 
-Add the service provider in `config/app.php`:
+Add the service provider in `config/app.php`:'
 
 ```php
 WalterNascimentoBarroso\CrudGenerator\CrudGeneratorServiceProvider::class,
