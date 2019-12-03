@@ -1,0 +1,16 @@
+{
+    "name": "walternascimentobarroso/laravel-crud-generator",
+    "description": "laravel-crud-generator",
+    "authors": [
+        {
+            "name": "Walter Nascimento Barroso",
+            "email": "walter.nascimento.barroso@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WalterNascimentoBarroso\\CrudGenerator\\": "src/"
+        }
+    },
+    "require": {}
+}
