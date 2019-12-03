@@ -18,7 +18,7 @@ git config user.email "walter.nascimento.barroso@gmail.com"
 # O primeiro e único commit do seu repositório terá
 # todos os arquivos presentes e a mensagem do commit será "Deploy to GitHub Pages"
 git add .
-git commit -m "Deploy to GitHub Pages"
+git commit -m "Deploy to GitHub"
 
 # Forçando o push do master para a branch gh-pages (Toda história anterior da branch
 # gh-pages será perdido, pois vamos substituí-lo.)  Redirecionamos qualquer saída para
