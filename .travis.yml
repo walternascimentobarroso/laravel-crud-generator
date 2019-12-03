@@ -3,5 +3,12 @@ language: php
 php:
   - 7.3
 
+before_script:
+  - phpenv config-rm xdebug.ini
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+
 script:
   - phpunit
