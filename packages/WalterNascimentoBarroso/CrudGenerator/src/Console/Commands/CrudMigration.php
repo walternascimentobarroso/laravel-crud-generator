@@ -95,7 +95,11 @@ class CrudMigration extends Command
     protected function generateField($field)
     {
         if ($field->constraint_type == "PRIMARY KEY") {
-            return "\t\t\t\$table->bigIncrements('id');\n";
+            if($field->data_type == "integer"||$field->data_type == "bigint") {
+                return "\t\t\t\$table->bigIncrements('$field->name');\n";
+            } else {
+                return "\t\t\t\$table->string('$field->name');\n";
+            }
         }
         if ($field->name == "remember_token") {
             return "\t\t\t\$table->rememberToken();\n";
@@ -130,9 +134,7 @@ class CrudMigration extends Command
         if ($field->data_type == "integer") {
             return "\t\t\t\$table->integer('$field->name'$length)$unique$nullable;\n";
         }
-        if ($field->data_type == "character varying") {
-            return "\t\t\t\$table->string('$field->name'$length)$unique$nullable;\n";
-        }
+        return "\t\t\t\$table->string('$field->name'$length)$unique$nullable;\n";
     }
 
     protected function getTemplate($file)
