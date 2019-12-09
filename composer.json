@@ -32,6 +32,7 @@
     },
     "autoload": {
         "psr-4": {
+            "WalterNascimentoBarroso\\CrudGenerator\\": "packages/WalterNascimentoBarroso\\CrudGenerator/src",
             "App\\": "app/"
         },
         "classmap": [
@@ -41,6 +42,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "WalterNascimentoBarroso\\CrudGenerator\\": "packages/WalterNascimentoBarroso\\CrudGenerator/src",
             "Tests\\": "tests/"
         }
     },
