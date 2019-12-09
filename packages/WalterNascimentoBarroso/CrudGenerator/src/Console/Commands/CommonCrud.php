@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\File;
 class CommonCrud extends Command
 {
     // Criando Model
-    public function makeModel($module, $arrayFields)
+    public function makeModel($module, $arrayFields, $table_name = false)
     {
         \Artisan::call("make:model Models/{$module}");
         $path_route = app_path().DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR."{$module}.php";
         $model = __DIR__.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'model.txt';
         $fields = '[\''.implode("', '", $arrayFields).'\']';
         $output = str_replace('$CLASS$', $module, file_get_contents($model));
+        $output = str_replace('$TABLE$', $table_name, $output);
         $output = str_replace('$FIELDS$', $fields, $output);
         File::put($path_route, $output);
     }

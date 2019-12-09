@@ -9,6 +9,8 @@ class $CLASS$ extends Model
 {
     use SoftDeletes;
 
+    protected $table = '$TABLE$';
+
     /**
      * The attributes that are mass assignable.
      *
