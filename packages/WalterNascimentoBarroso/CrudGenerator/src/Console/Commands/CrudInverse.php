@@ -59,10 +59,8 @@ class CrudInverse extends CommonCrud
     private function makeModule($package)
     {
         $packageLower = strtolower($package);
-        # get list of fields
-        $filtersFields = array_diff(Schema::getColumnListing($packageLower), ["id", "created_at", "updated_at", "deleted_at"]);
         $module = Str::studly(Str::singular($packageLower));
-        $this->makeModel($module, $filtersFields, $packageLower);
+        $this->makeModel($module, $packageLower);
         \Artisan::call("make:resource {$module}Resource");
         \Artisan::call("crud:migration --table=$packageLower");
         $this->makeController($module);

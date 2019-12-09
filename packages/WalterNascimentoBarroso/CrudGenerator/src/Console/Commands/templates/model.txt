@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
+$SOFTDELETE$
 class $CLASS$ extends Model
 {
-    use SoftDeletes;
-
+    $USESOFTDELETE$
     protected $table = '$TABLE$';
 
     /**

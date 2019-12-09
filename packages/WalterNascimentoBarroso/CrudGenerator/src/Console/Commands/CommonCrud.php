@@ -4,18 +4,30 @@ namespace WalterNascimentoBarroso\CrudGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 
 class CommonCrud extends Command
 {
     // Criando Model
-    public function makeModel($module, $arrayFields, $table_name = false)
+    public function makeModel($module, $table_name)
     {
+        # get list of fields
+        $arrayFieldsFull = Schema::getColumnListing($table_name);
+
+        $arrayFields = array_diff($arrayFieldsFull, ["id", "created_at", "updated_at", "deleted_at"]);
         \Artisan::call("make:model Models/{$module}");
         $path_route = app_path().DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR."{$module}.php";
         $model = __DIR__.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'model.txt';
         $fields = '[\''.implode("', '", $arrayFields).'\']';
         $output = str_replace('$CLASS$', $module, file_get_contents($model));
         $output = str_replace('$TABLE$', $table_name, $output);
+        if (in_array("deleted_at", $arrayFieldsFull)) {
+            $output = str_replace('$SOFTDELETE$', "use Illuminate\Database\Eloquent\SoftDeletes;\n", $output);
+            $output = str_replace('$USESOFTDELETE$', "use SoftDeletes;", $output);
+        } else {
+            $output = str_replace('$SOFTDELETE$', "\n", $output);
+            $output = str_replace('$USESOFTDELETE$', "\n", $output);
+        }
         $output = str_replace('$FIELDS$', $fields, $output);
         File::put($path_route, $output);
     }
