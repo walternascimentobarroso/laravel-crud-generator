@@ -1,0 +1,149 @@
+/**
+ * @apiGroup $MODULE$
+ */
+/**
+ * Serviço Schole
+ *
+ * @api {get} /api/$MODULE$ Lista Todos
+ * @apiVersion 0.0.1
+ * @apiName $MODULE$ReadAll
+ * @apiGroup $MODULE$
+ * @apiPermission nenhuma
+ *
+ * @apiDescription Usado para listar todos os $MODULE$.
+ *
+ * @apiSuccess {String} success Status da api.
+ * @apiSuccess {Array} data Dados da requisição.
+ * @apiSuccess {String} message Mensagem de retorno.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "success": true,
+ *          "data": [],
+ *          "message": "Registros recuperados com sucesso."
+ *     }
+ *
+ * @apiError InternalError Erro interno.
+ *
+ * @apiErrorExample InternalError:
+ *    HTTP/1.1 500 Internal Server Error
+ *
+ * @apiSampleRequest /api/$MODULE$
+ */
+/**
+ * @api {get} /api/$MODULE$/:id Lista
+ * @apiVersion 0.0.1
+ * @apiName $MODULE$Read
+ * @apiGroup $MODULE$
+ * @apiPermission nenhuma
+ *
+ * @apiDescription Usado para listar uma $MODULE$.
+ *
+ * @apiParam {Number} id Id da $MODULE$.
+ *
+ * @apiSuccess {String} success Status da api.
+ * @apiSuccess {Array} data Dados da requisição.
+ * @apiSuccess {String} message Mensagem de retorno.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "success": true,
+ *          "data": [],
+ *          "message": "Registros recuperados com sucesso."
+ *     }
+ *
+ * @apiError InternalError Erro interno.
+ *
+ * @apiErrorExample InternalError:
+ *    HTTP/1.1 500 Internal Server Error
+ *
+ * @apiSampleRequest /api/$MODULE$/:id
+ */
+/**
+ * @api {post} /api/$MODULE$ Criar
+ * @apiVersion 0.0.1
+ * @apiName $MODULE$Create
+ * @apiGroup $MODULE$
+ * @apiPermission nenhuma
+ *
+ * @apiDescription Usado para criar um novo $MODULE$.
+ *
+ * @apiParam {String} params Paramentros a definir.
+ *
+ * @apiSuccess {String} success Status da api.
+ * @apiSuccess {Array} data Dados da requisição.
+ * @apiSuccess {String} message Mensagem de retorno.
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "success": true,
+ *          "data": [],
+ *          "message": "Registro criado com sucesso."
+ *     }
+ *
+ * @apiError InternalError Erro interno.
+ *
+ * @apiErrorExample InternalError:
+ *    HTTP/1.1 500 Internal Server Error
+ *
+ * @apiSampleRequest /api/$MODULE$
+ */
+/**
+ * @api {put} /api/$MODULE$/:id Editar
+ * @apiVersion 0.0.1
+ * @apiName $MODULE$Update
+ * @apiGroup $MODULE$
+ * @apiPermission nenhuma
+ *
+ * @apiParam {Number} id Id da $MODULE$.
+ * @apiParam {String} params Paramentros a definir.
+ *
+ * @apiSuccess {String} success Status da api.
+ * @apiSuccess {Array} data Dados da requisição.
+ * @apiSuccess {String} message Mensagem de retorno.
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "success": true,
+ *          "data": [],
+ *          "message": "Registros editado com sucesso."
+ *     }
+ *
+ * @apiError InternalError Erro interno.
+ *
+ * @apiErrorExample InternalError:
+ *    HTTP/1.1 500 Internal Server Error
+ *
+ * @apiSampleRequest /api/$MODULE$/:id
+ */
+/**
+ * @api {delete} /api/$MODULE$/:id Remove
+ * @apiVersion 0.0.1
+ * @apiName $MODULE$Delete
+ * @apiGroup $MODULE$
+ * @apiPermission nenhuma
+ *
+ * @apiDescription Usado para Remover uma $MODULE$.
+ *
+ * @apiParam {Number} id Id da $MODULE$.
+ *
+ * @apiSuccess {String} success Status da api.
+ * @apiSuccess {Array} data Dados da requisição.
+ * @apiSuccess {String} message Mensagem de retorno.
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          "success": true,
+ *          "data": [],
+ *          "message": "Registros editado com sucesso."
+ *     }
+ *
+ * @apiError InternalError Erro interno.
+ *
+ * @apiErrorExample InternalError:
+ *    HTTP/1.1 500 Internal Server Error
+ *
+ * @apiSampleRequest /api/$MODULE$/:id
+ */

@@ -45,9 +45,16 @@ class CommonCrud extends Command
     // Criando Route
     public function makeRoutes($modulelower, $module)
     {
-        $path_route = base_path().DIRECTORY_SEPARATOR.'routes'.DIRECTORY_SEPARATOR.'api.php';
-        $routes = "\nRoute::apiResource('$modulelower', 'API\\{$module}Controller');";
-        File::append($path_route, $routes);
+        $routes = "Route::apiResource('$modulelower', 'API\\{$module}Controller');";
+        $path_route = base_path().DIRECTORY_SEPARATOR.'routes'.DIRECTORY_SEPARATOR.'apiroutes'.DIRECTORY_SEPARATOR.$modulelower.'.php';
+
+        $apidoc = __DIR__.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'apidoc.txt';
+        $output = str_replace('$MODULE$', $modulelower, file_get_contents($apidoc));
+
+        $newoutput = "<?php\n\n".$output . $routes;
+        File::put($path_route, $newoutput);
+        // $path_route = base_path().DIRECTORY_SEPARATOR.'routes'.DIRECTORY_SEPARATOR.'api.php';
+        // File::append($path_route, $routes);
         $this->info("Module $module created!");
         $this->info("1) <fg=white>List</>    Verb: <fg=yellow>GET</>,    URL: <fg=blue>http://localhost:8000/api/$modulelower</>");
         $this->info("2) <fg=white>Create</>  Verb: <fg=yellow>POST</>,   URL: <fg=blue>http://localhost:8000/api/$modulelower</>");
