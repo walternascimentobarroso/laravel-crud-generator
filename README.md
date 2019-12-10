@@ -19,3 +19,10 @@ if use the first time, run the code below:
 ```bash
 php artisan vendor:publish --provider="WalterNascimentoBarroso\CrudGenerator\CrudGeneratorServiceProvider"
 ```
+
+# Generate doc
+```
+cd doc
+apidoc -i ../routes/ -o ../public/apidoc/
+http://localhost:8000/apidoc/index.html
+```

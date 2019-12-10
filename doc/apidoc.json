@@ -1,0 +1,14 @@
+{
+    "name": "Templat",
+    "version": "0.0.1",
+    "description": "Documentação Templat",
+    "title": "Doc Templat",
+    "header": {
+        "title": "Inicio",
+        "filename": "header.md"
+    },
+    "footer": {
+        "title": "Fim",
+        "filename": "footer.md"
+    }
+}
