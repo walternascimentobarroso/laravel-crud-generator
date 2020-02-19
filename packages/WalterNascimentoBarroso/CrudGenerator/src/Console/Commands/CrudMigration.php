@@ -52,6 +52,10 @@ class CrudMigration extends Command
 
     protected function generateTablesAndIndices($tables)
     {
+        if(getEnv("DB_CONNECTION") == 'mysql') {
+            \Artisan::call("make:migration create_$tables");
+            return;
+        }
         if (is_array($tables)) {
             foreach ($tables as $table) {
                 $this->generate($table);
