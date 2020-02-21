@@ -49,6 +49,7 @@ class CrudRest extends CommonCrud
         \Artisan::call("make:resource {$module}Resource");
         \Artisan::call("make:test {$module}Test --unit");
         \Artisan::call("make:seeder {$module}TableSeeder");
+        \Artisan::call("make:factory {$module}Factory --model=Models/{$module}");
         $this->makeController($module);
         $this->makeRoutes(Str::plural($modulelower), $module);
     }

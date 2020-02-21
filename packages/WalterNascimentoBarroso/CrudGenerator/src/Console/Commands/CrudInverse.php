@@ -64,6 +64,7 @@ class CrudInverse extends CommonCrud
         \Artisan::call("crud:migration --table=$packageLower");
         \Artisan::call("make:test {$module}Test --unit");
         \Artisan::call("make:seeder {$module}TableSeeder");
+        \Artisan::call("make:factory {$module}Factory --model=Models/{$module}");
         $this->makeController($module);
         $this->makeRoutes(Str::plural($packageLower), $module);
     }
