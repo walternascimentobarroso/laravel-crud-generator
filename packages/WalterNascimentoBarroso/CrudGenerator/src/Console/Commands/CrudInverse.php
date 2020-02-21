@@ -2,9 +2,8 @@
 
 namespace WalterNascimentoBarroso\CrudGenerator\Console\Commands;
 
-use Illuminate\Support\Facades\Schema;
-use WalterNascimentoBarroso\CrudGenerator\Console\Commands\DbSettings;
 use Illuminate\Support\Str;
+use WalterNascimentoBarroso\CrudGenerator\Console\Commands\DbSettings;
 
 class CrudInverse extends CommonCrud
 {
@@ -63,6 +62,8 @@ class CrudInverse extends CommonCrud
         $this->makeModel($module, $packageLower);
         \Artisan::call("make:resource {$module}Resource");
         \Artisan::call("crud:migration --table=$packageLower");
+        \Artisan::call("make:test {$module}Test --unit");
+        \Artisan::call("make:seeder {$module}TableSeeder");
         $this->makeController($module);
         $this->makeRoutes(Str::plural($packageLower), $module);
     }

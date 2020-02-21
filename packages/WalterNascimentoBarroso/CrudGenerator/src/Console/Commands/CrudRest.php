@@ -47,10 +47,10 @@ class CrudRest extends CommonCrud
         $this->makeMigration($modulelower, $arrayFields);
         $this->makeModel($module, $arrayFields);
         \Artisan::call("make:resource {$module}Resource");
+        \Artisan::call("make:test {$module}Test --unit");
+        \Artisan::call("make:seeder {$module}TableSeeder");
         $this->makeController($module);
         $this->makeRoutes(Str::plural($modulelower), $module);
-        //php artisan migrate --seed
-        //php artisan make:test UserTest --unit
     }
 
     public function makeMigration($module, $arrayFields)
